@@ -33,8 +33,33 @@ def ordered_by_qualifications (candidate)
   candidate.sort_by {|k| [k[:years_of_experience], k[:github_points]]}.reverse
 end
 
-#pp find_id(5)
+##pp find_id(5)
 
 ##pp qualified_candidates(@candidates)
 
 ##pp ordered_by_qualifications(@candidates)
+
+def repl
+  puts "find5 - To show candidate 5."
+  puts "all - To show all candidates."
+  puts "qualified - To show qualified candidates."
+  puts "quit."
+
+  while true do
+
+    user = gets.chomp.downcase
+
+    case user
+    when /find5/
+      pp find_id(5)
+    when /all/
+      pp @candidates
+    when /qualified/
+      pp qualified_candidates(@candidates)
+    when /quit/
+      break
+    end
+  end
+end
+
+repl
